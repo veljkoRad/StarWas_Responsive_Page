@@ -1,0 +1,294 @@
+@font-face {
+  /*ovako ubacujemo sa kompa ttf font u program*/
+  font-family: mojFont;
+  src: url(star-jedi.ttf);
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: mojFont;
+}
+
+h2 {
+  font-family: myFirstFont;
+  color: darkgreen;
+}
+
+h2 {
+  font-family: myFirstFont;
+  color: darkgreen;
+}
+
+button {
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+/*Header*/
+.naslov {
+  height: 120px;
+  background-image: linear-gradient(to right, #2459ff 30%, #610007 60%);
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.9rem;
+  background-image: linear-gradient(to right, #d2cfd0 46%, #060606 52%);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  transition: all 0.5s ease;
+}
+.container:hover {
+  transform: translate(-10px);
+  transition: all 0.5s ease;
+}
+
+.container p {
+  transition: all 2s ease;
+}
+
+/*End Header*/
+
+/*Main*/
+main {
+  background-image: linear-gradient(to right, #d2cfd0 45%, #060606 55%);
+  display: flex;
+  justify-content: center;
+  height: 670px;
+}
+.okvir {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  align-items: center;
+}
+
+.gj {
+  width: 330px;
+  height: 480px;
+  background-image: url("slike/GJ3.jpg");
+  background-position: center;
+}
+.ae {
+  width: 330px;
+  height: 480px;
+  background-position: center;
+  background-image: url("slike/AE1.jpg");
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+}
+.okvir > .gj:hover {
+  transform: translate(10px, 10px);
+  box-shadow: 20px 20px 40px 10px #f4982a;
+}
+.okvir > .ae:hover {
+  transform: translate(10px, 10px);
+  box-shadow: 20px 20px 50px #ca0707;
+}
+
+@media screen and (max-width: 980px) {
+  main {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
+  .okvir {
+    margin-top: 20px;
+  }
+}
+/*End Main*/
+
+/*Side Menus*/
+.sadrzaj {
+  font-size: 1rem;
+  padding: 0 40px 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  position: static;
+}
+.prvi {
+  display: flex;
+  justify-content: end;
+}
+/*.sadrzaj>:hover {  //kad stignes resi problem sa eventima,hoverima i z-indexom,zasto ne utice z-index na event ili hover?
+	transform: scale(1.8) translate(40px);
+	transition: all 0.5s ease;
+}*/
+.tema {
+  display: flex;
+  position: static;
+  border-radius: 10px;
+  height: 48px;
+}
+.sadrzaj-tema {
+  display: flex;
+  flex-direction: column;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  transition: all 1.5s ease;
+  pointer-events: none;
+  position: relative;
+  transition: all 0.3s ease;
+  font-family: "Franklin Gothic", sans-serif;
+}
+.show-sadrzaj-tema {
+  width: 99%;
+  height: 100%;
+  padding-top: 20px;
+  background-color: #171819;
+  /*background-image: url(slike/AE6.jpg);
+	background-repeat: no-repeat;
+	background-position: center;*/
+  z-index: 11;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none; /*pomocu ovovga sam ugasio scale efekat iz klase sadrzaj koji je nasledila ova klasa.*/
+  transition: all 0.6s ease;
+  padding-right: 20px;
+}
+.gj-main .sadrzaj .sadrzaj-tema {
+  color: #171819;
+}
+ul {
+  margin-left: 2rem; /*problem je sto sam kucao u li padding-left20px a posto bullet nije u li ni u ul,vec van ul sa leve strane,on je nestao sa slike posto je margina 0*/
+  list-style-type: square;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+li {
+  font-family: "Cursive", sans-serif;
+  font-size: 1.2rem;
+  display: list-item;
+  padding-bottom: 30px;
+}
+ol li {
+  margin-left: 30px;
+  font-size: 0.98rem;
+  font-weight: bold;
+  margin-bottom: -25px;
+}
+
+span {
+  font-weight: bold;
+  font-family: "Cursive", sans-serif;
+}
+
+/*End Side Menus*/
+
+/*Left*/
+
+.gray-jedi {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  transform: translate(-100%);
+  transition: all 1.5s ease;
+}
+.gray-jedi header div {
+  height: 120px;
+}
+.gj-main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #d2cfd0;
+  background-image: url("slike/GJ1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.show-gj-main {
+  transform: translate(0);
+}
+.gj-izadji {
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 20px 20px 0 0;
+  color: #2459ff;
+  transition: 0.4s ease all;
+}
+.gj-izadji:hover {
+  transform: scale(1.5);
+  transition: 0.4s ease all;
+}
+.gj-main .sadrzaj {
+  color: #171819;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.gj-main .sadrzaj .tema:hover {
+  box-shadow: 10px 10px 20px #2459ff;
+}
+/*End Left*/
+
+/*Roght*/
+
+.alter-ego {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  transform: translate(100%);
+  transition: all 1.5s ease;
+}
+.alter-ego header div {
+  height: 120px;
+}
+.ae-main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #171819;
+  background-image: url("slike/AE3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.show-ae-main {
+  transform: translate(0);
+}
+.ae-izadji {
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 20px 20px 0 0;
+  color: #610007;
+  transition: 0.4s ease all;
+}
+.ae-izadji:hover {
+  transform: scale(1.5);
+  transition: 0.4s ease all;
+}
+.ae-main .sadrzaj {
+  color: #d2cfd0;
+}
+.ae-main .sadrzaj .tema:hover {
+  box-shadow: 10px 10px 20px #610007;
+}
+/*End Right*/
